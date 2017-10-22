@@ -79,15 +79,15 @@
                     
                         
 							
-                        <li>
-                            <a href="/Tags/">Tags</a>
-                        </li>
+								
 							
 						
                     
                         
 							
-								
+                        <li>
+                            <a href="/Tags/">Tags</a>
+                        </li>
 							
 						
                     
@@ -183,7 +183,17 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                
+                <p><strong>SQL注入就是通过SQL命令插入到web表单提交或输入域名或页面请求的查询字符串，最终达到欺骗服务器执行恶意的SQL命令</strong></p>
+<h2 id="手工注入ACCESS数据库"><a href="#手工注入ACCESS数据库" class="headerlink" title="手工注入ACCESS数据库"></a>手工注入ACCESS数据库</h2><p>首先在以<strong><em>【.asp？id=num(数字任意)】</em></strong>结尾的链接依次添加<strong>*</strong>【’ 】，【and 1=1】<strong>*<br>或者【and 1=2】</strong>,来判断网站是否存在注入点。</p>
+<p>然后，添加语句<strong><em>【and exists(select </em> from admin)】*</strong><br>根据页面返回结果来猜解表单。</p>
+<p>再次，添加语句<strong><em>【and exists(select admin from admin)】</em></strong><br>来猜解admin表中的列名admin。</p>
+<p>最后，添加语句<strong><em>【and (select top 1 len (admin) from admin)&gt;1】</em></strong> ,</p>
+<p>来猜解字段长度；添加<strong><em>【and (select top 1asc(mid(admin,1,1)) from admin)&gt;97】</em></strong>,来猜解字段中字符的ASCII码。<br>通过以上四个步骤，反复猜解，即可得到数据库中存储的用户名和密码</p>
+<hr>
+<p><img src="http://img.blog.csdn.net/20171022202428193?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfNDA3Mjg0MDM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="发现.asp?id=45"></p>
+<p>![在结尾加上<a href="http://img.blog.csdn.net/20171022202838501?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfNDA3Mjg0MDM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" target="_blank" rel="external">‘ </a><br>![结尾处加上<a href="http://img.blog.csdn.net/20171022203401887?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfNDA3Mjg0MDM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" target="_blank" rel="external">and 1=1</a><br>![结尾加上<a href="http://img.blog.csdn.net/20171022204423778?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfNDA3Mjg0MDM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" target="_blank" rel="external">and 1=2</a><br><img src="http://img.blog.csdn.net/20171022204349958?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfNDA3Mjg0MDM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="结尾and exists(select * from admin)"><br>页面显示正常，说明存在表名admin<br><img src="http://img.blog.csdn.net/20171022205339521?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfNDA3Mjg0MDM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="结尾处添加and exists(select admin from admin)"><br>页面显示正常，说明在表单中存在admin列<br><img src="http://img.blog.csdn.net/20171022205548430?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfNDA3Mjg0MDM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="结尾处添加and exists(select password from admin)"></p>
+<p>页面显示正常，说明表单中存在password列<br><img src="http://img.blog.csdn.net/20171022210001709?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfNDA3Mjg0MDM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20171022210016058?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfNDA3Mjg0MDM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+
                 <hr>
                 
 
@@ -208,7 +218,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#手工注入ACCESS数据库"><span class="toc-text">手工注入ACCESS数据库</span></a></li></ol>
                 </div>
             </div>
         </div>
