@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        Hello World｜呵呵哒元帅
+        write-up｜呵呵哒元帅
         
     </title>
 
-    <link rel="canonical" href="http://857123553.github.io/2017/10/11/hello-world/">
+    <link rel="canonical" href="http://857123553.github.io/2017/11/01/write-up/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -155,12 +155,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>Hello World</h1>
+                    <h1>write-up</h1>
                     
                     <span class="meta">
                          作者 呵呵哒~王
                         <span>
-                          日期 2017-10-11
+                          日期 2017-11-01
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -172,7 +172,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            Hello World
+            write-up
         </span>
     </div>
 </header>
@@ -183,26 +183,36 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+                <p>emmmm<br>好几天了，终于开始写了。</p>
+<p>1、<a href="http://ctf5.shiyanbar.com/DUTCTF/index.php" target="_blank" rel="external">php大法</a><br><img src="http://img.blog.csdn.net/20171101152153559?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfNDA3Mjg0MDM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>叫我去index.php.txt，那我就去看看咯</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&lt;?php</div><div class="line">if(eregi(&quot;hackerDJ&quot;,$_GET[id])) &#123;</div><div class="line">  echo(&quot;&lt;p&gt;not allowed!&lt;/p&gt;&quot;);</div><div class="line">  exit();</div><div class="line">&#125;</div><div class="line"></div><div class="line">$_GET[id] = urldecode($_GET[id]);</div><div class="line">if($_GET[id] == &quot;hackerDJ&quot;)</div><div class="line">&#123;</div><div class="line">  echo &quot;&lt;p&gt;Access granted!&lt;/p&gt;&quot;;</div><div class="line">  echo &quot;&lt;p&gt;flag: *****************&#125; &lt;/p&gt;&quot;;</div><div class="line">&#125;</div><div class="line">?&gt;</div><div class="line"></div><div class="line"></div><div class="line">&lt;br&gt;&lt;br&gt;</div><div class="line">Can you authenticate to this website?</div></pre></td></tr></table></figure>
+<p>然后就看到了这样子的php代码</p>
+<p>看看代码，emmmm<br>原来是把hackerDJ把它给ENCODE<strong>两次</strong><br>服务器会对其urldecode一次，代码中又有一次，所以我就反向来两次，哈哈</p>
+<p>打开神器Burp Suite -&gt;Decoder<br>把hackerDJ复制进去,ENCODE两次<br>便得到了<br><img src="http://img.blog.csdn.net/20171101153206183?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfNDA3Mjg0MDM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>然后<br><a href="http://ctf5.shiyanbar.com/DUTCTF/index.php?id=%2568%2561%2563%256b%2565%2572%2544%254a" target="_blank" rel="external">http://ctf5.shiyanbar.com/DUTCTF/index.php?id=%2568%2561%2563%256b%2565%2572%2544%254a</a></p>
+<p>得到了FLAG-&gt;flag: DUTCTF{PHP_is_the_best_program_language}<br>emmm,<br>或许php<br>就是最好的语言吧<br>2、</p>
+<p><a href="http://chinalover.sinaapp.com/web19/" target="_blank" rel="external">http://chinalover.sinaapp.com/web19/</a></p>
+<p>在题目中看到php代码</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&lt;?php</div><div class="line">$md51 = md5(&apos;QNKCDZO&apos;);</div><div class="line">$a = @$_GET[&apos;a&apos;];</div><div class="line">$md52 = @md5($a);</div><div class="line">if(isset($a))&#123;</div><div class="line">if ($a != &apos;QNKCDZO&apos; &amp;&amp; $md51 == $md52) &#123;</div><div class="line">echo &quot;nctf&#123;*&#125;&quot;;</div><div class="line">&#125; else &#123;</div><div class="line">echo &quot;false!!!&quot;;</div><div class="line">&#125;&#125;</div><div class="line">else&#123;echo &quot;please input a&quot;;&#125;</div><div class="line">?&gt;</div></pre></td></tr></table></figure>
+<p>可以看到题目<br>要求$a!=’QNKCDZO’,<br>但是要求$a的MD5等于’QNKCDZO’的MD5，所以<br>QNKCDZO经过MD5加密之后为0e830400451993494058024219903391<br>在php中==号为弱比较，’0e’开头剩下的全为数字不管数字是多少==恒成立<br>因为’0e<em>*</em>‘==0<br>所以就百度一个开头为 ‘0e’ 的MD5字符串<br><img src="http://img.blog.csdn.net/20171101155716566?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfNDA3Mjg0MDM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>随便选择一个<br>s214587387a<br>0e848240448830537924465865611904</p>
+<p>然后在地址栏输入<a href="http://chinalover.sinaapp.com/web19/?a=s214587387a" target="_blank" rel="external">http://chinalover.sinaapp.com/web19/?a=s214587387a</a></p>
+<p>就成功得到了FLAG，撒花撒花<br>nctf{md5_collision_is_easy}<br>3、<br><a href="http://teamxlc.sinaapp.com/web1/02298884f0724c04293b4d8c0178615e/index.php" target="_blank" rel="external">http://teamxlc.sinaapp.com/web1/02298884f0724c04293b4d8c0178615e/index.php</a><br><img src="http://img.blog.csdn.net/20171101160211785?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfNDA3Mjg0MDM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>然后就发现了这个咯，叫我输入zhimakaimen</p>
+<p>那我就输入咯，发现输到后面输入不了，肯定是长度受到了限制，<br>直接在页面中查看元素<br><img src="http://img.blog.csdn.net/20171101161156406?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfNDA3Mjg0MDM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>把长度给改掉，就get到了flag<br>flag is:nctf{follow_me_to_exploit}</p>
 
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2017/10/22/1/" data-toggle="tooltip" data-placement="top"
-                           title="小白学习SQL注入">&larr; Previous Post</a>
-                    </li>
                     
+                    <li class="next">
+                        <a href="/2017/10/22/1/" data-toggle="tooltip" data-placement="top"
+                           title="小白学习SQL注入">Next Post &rarr;</a>
+                    </li>
                     
                 </ul>
 
@@ -217,7 +227,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+                    
                 </div>
             </div>
         </div>
